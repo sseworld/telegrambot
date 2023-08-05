@@ -1,6 +1,7 @@
 import os
 import openai
 from aiogram import Bot, Dispatcher, executor, types
+from keep_alive import keep_alive
 
 bot = Bot(token=os.getenv("tg_token"))
 dp = Dispatcher(bot)
@@ -8,6 +9,7 @@ dp = Dispatcher(bot)
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 openai.api_key = os.getenv("ai_token")
 
+keep_alive()
 
 @dp.message_handler(commands=['start'])
 async def welcome(message: types.Message):
